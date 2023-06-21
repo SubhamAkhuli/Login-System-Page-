@@ -49,6 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <body>
     <?php require 'partials/_nav.php' ?>
+
     <?php
     echo '<style>
     body{
@@ -60,6 +61,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     </style>'
     ;
+    if(isset($_GET['signupsuccess']) && $_GET['signupsuccess']=="true"){
+        echo '<div class="alert alert-success alert-dismissible fade show my-0" role="alert">
+                  <strong>Success!</strong>Your account is now created and you can login now
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>';
+    }
     if($login){
     echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
         <strong>Success!</strong> You are logged in

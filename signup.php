@@ -24,13 +24,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $result = mysqli_query($conn, $sql);
             if ($result){
                 $showAlert = true;
-                
+                header("Location:/subham/loginsystem/login.php?signupsuccess=true");
             }
         }
         else{
             $showError = "Passwords do not match";
         }
     }
+    
 }
     
 ?>
@@ -66,15 +67,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
      </style>'
      ;
-    if($showAlert){
-    echo ' <div class="alert alert-success alert-dismissible fade show" role="alert">
-        <strong>Success!</strong> Your account is now created and you can login
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div> ';
-    // header("location: login.php");
-    }
     if($showError){
     echo ' <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <strong>Error!</strong> '. $showError.'
